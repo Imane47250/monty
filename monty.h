@@ -66,5 +66,10 @@ void pstr(stack_t **h, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_num);
 void rotr(stack_t **stack, unsigned int line_num);
 
+/* file functions prototypes*/
+
+int process_instructions(stack_t **h, char **lines);
+char **read_file(const char *file_path);
+void free_lines(char **lines);
 
 #endif
