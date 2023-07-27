@@ -45,21 +45,3 @@ void is_number(char *token)
 	}
 }
 
-
-/**
- * remove_spaces - removes spaces from a string
- * @str: string
- * Owned by: Imane & Fatima Zahra
- * Return: string with removed spaces
- */
-char *remove_spaces(char *str)
-{
-	while (*str)
-	{
-		if (*str == ' ')
-			str++;
-		else
-			break;
-	}
-	return (str);
-}
