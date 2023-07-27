@@ -41,3 +41,21 @@ void free_stack(stack_t *top)
 	fclose(datax.mfile);
 }
 
+/**
+ * remove_spaces - remove spaces
+ * @str: string to be manipulated
+ * Owned by: Imane & Fatima Zahra
+ * Return: str without spaces
+ */
+char *remove_spaces(char *str)
+{
+	while (*str)
+	{
+		if (*str == ' ')
+			str++;
+		else
+			break;
+	}
+	return (str);
+}
+
