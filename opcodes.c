@@ -27,16 +27,17 @@ void _mode(stack_t **top, unsigned int line_number)
  */
 void _pall(stack_t **top, unsigned int line_number)
 {
-	stack_t *current = *top;
-	int i;
-
+	stack_t *h;
 	(void)line_number;
-	for (i = 0; current; i++)
+
+	h = *top;
+	if (h == NULL)
+		return;
+	while (h)
 	{
-		fprintf(stdout, "%d\n", current->n);
-		current = current->next;
+		printf("%d\n", h->n);
+		h = h->next;
 	}
-	fflush(stdout);
 }
 
 /**
