@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * openfile -  opens the file and reads its content

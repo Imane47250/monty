@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 
 /**
  * find_op - selects the correct operation function based on the input
