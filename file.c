@@ -24,7 +24,8 @@ FILE *openfile(char *filename)
 /**
  * free_stack -  frees stack
  * @top: head of double list
- * Return: none
+ * Owned by: Imane & Fatima zahra
+ * Return: void
  */
 void free_stack(stack_t *top)
 {
