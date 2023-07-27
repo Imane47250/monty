@@ -4,57 +4,53 @@
  * _push -  adds a new node at the beginning
  * @top: head of double list
  * @line_number: line number of opcode
- * Return: none
+ * Owned by: Imane and Fatima Zahra
+ * Return: void
  */
-void _push(stack_t **top, unsigned int line_number)
+void push(stack_t **top, unsigned int line_number)
 {
-	stack_t *new, *last;
-	int i = 0;
+	stack_t *new;
+	int num;
 
-	(void)line_number;
-	if (!top)
-		return;
-	new = malloc(sizeof(stack_t));
-	if (!new)
+	if (!datax.push_value)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}
-	new->n = datax.push_value;
-	if (datax.mode == 0 || !*top)
-	{
-		if (*top)
-		{
-			new->next = *top;
-			(*top)->prev = new;
-		}
-		else
-			new->next = NULL;
-		new->prev = NULL;
-		*top = new;
-	}
-	else if (datax.mode == 1)
-	{
-		last = *top;
-		for (i = 0; last; i++)
-		{
-			if (!last->next)
-				break;
-			last = last->next;
-		}
-		last->next = new;
-		new->prev = last;
-		new->next = NULL;
-	}
-}
 
+	num = atoi(datax.push_value);
+	if (!num && strcmp(datax.push_value, "0") != 0)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+
+	new->n = num;
+	new->next = *top;
+	new->prev = NULL;
+
+	if (*top)
+		(*top)->prev = new;
+
+	*top = new;
+}
 
 /**
  * _pop - removes the top element of the stack
  * @top: head of double list
  * @line_number: line number of opcode
- * Return: none
+ * Owned by: Imane & Fatima Zahra
+ * Return: void
  */
 void _pop(stack_t **top, unsigned int line_number)
 {
