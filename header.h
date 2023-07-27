@@ -59,7 +59,7 @@ data datax;
 
 int main(int argc, char **argv);
 
-/*opcodes.c*/
+/*opcodes*/
 void find_op(void);
 void _push(stack_t **top, unsigned int line_number);
 void _pall(stack_t **top, unsigned int line_number);
@@ -90,5 +90,5 @@ FILE *openfile(char *filename);
 size_t num_len(int num);
 void is_number(char *token);
 void free_stack(stack_t *top);
-
+char *remove_spaces(char *str);
 #endif
